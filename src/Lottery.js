@@ -16,13 +16,13 @@ class Lottery extends Component {
     }
 
     rng() {
-        return Math.floor((Math.random() * 40) + 1);
+        return Math.floor((Math.random() * this.props.maxNum) + 1);
     }
 
     render() {
         return (
             <div className="lottery-container">
-                <h3>Lotto</h3>
+                <h3>{this.props.title}</h3>
                     <div className="lottery">
                         {Object.keys(this.state).map(
                             key => ( <Ball key={key} number={this.state[key]} /> )

@@ -4,7 +4,7 @@ import Lottery from './Lottery.js';
 function App() {
   return (
     <div className="App">
-      <Lottery />
+      <Lottery title="Lotto" numBalls={4} maxNum={40} />
     </div>
   );
 }
