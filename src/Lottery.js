@@ -21,10 +21,14 @@ class Lottery extends Component {
 
     render() {
         return (
-            <div className="lottery">
-                {Object.keys(this.state).map(
-                    key => ( <Ball key={key} number={this.state[key]} /> )
-                )}
+            <div className="lottery-container">
+                <h3>Lotto</h3>
+                    <div className="lottery">
+                        {Object.keys(this.state).map(
+                            key => ( <Ball key={key} number={this.state[key]} /> )
+                        )}
+                    </div>
+                <button className="generateButton">Generate</button>
             </div>
         );
     }
