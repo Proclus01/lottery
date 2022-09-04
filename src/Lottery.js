@@ -3,15 +3,16 @@ import Ball from './Ball.js';
 import './Lottery.css';
 
 class Lottery extends Component {
+    static defaultProps = {
+        title: 'Lotto',
+        maxBalls: 6,
+        maxNum: 40
+    }
+
     constructor(props) {
         super(props);
         this.state = {
-            ball1: this.rng(),
-            ball2: this.rng(),
-            ball3: this.rng(),
-            ball4: this.rng(),
-            ball5: this.rng(),
-            ball6: this.rng()            
+            nums: Array.from({ length: this.props.maxBalls })       
         }
     }
 
@@ -19,16 +20,24 @@ class Lottery extends Component {
         return Math.floor((Math.random() * this.props.maxNum) + 1);
     }
 
+    generate() {
+
+    }
+
+    handleClick() {
+        this.generate();
+    }
+
     render() {
         return (
             <div className="lottery-container">
                 <h3>{this.props.title}</h3>
                     <div className="lottery">
-                        {Object.keys(this.state).map(
-                            key => ( <Ball key={key} number={this.state[key]} /> )
+                        {this.state.nums.map(
+                            (key, idx) => ( <Ball key={idx} number={this.state.nums[key]} /> )
                         )}
                     </div>
-                <button className="generateButton">Generate</button>
+                <button onClick={this.handleClick} className="generateButton">Generate</button>
             </div>
         );
     }
