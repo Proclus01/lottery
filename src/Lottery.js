@@ -13,7 +13,8 @@ class Lottery extends Component {
         super(props);
         this.state = {
             nums: Array.from({ length: this.props.maxBalls })       
-        }
+        };
+        this.handleClick = this.handleClick.bind(this);
     }
 
     rng() {
@@ -21,7 +22,13 @@ class Lottery extends Component {
     }
 
     generate() {
-
+        this.setState(
+            currentState => ({
+                nums: currentState.nums.map(
+                    num => this.rng()
+                )
+            })
+        );
     }
 
     handleClick() {
@@ -34,7 +41,7 @@ class Lottery extends Component {
                 <h3>{this.props.title}</h3>
                     <div className="lottery">
                         {this.state.nums.map(
-                            (key, idx) => ( <Ball key={idx} number={this.state.nums[key]} /> )
+                            (key, idx) => ( <Ball key={idx} number={key} /> )
                         )}
                     </div>
                 <button onClick={this.handleClick} className="generateButton">Generate</button>
