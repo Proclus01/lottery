@@ -7,8 +7,10 @@
 }
 
 .number {
-    padding: 0.8em;
+    padding: 0.15em;
     justify-content: center;
     color: white;
     font-weight: 900;
+    font-family: "American Typewriter";
+    font-size: 2em;
 }
