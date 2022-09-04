@@ -1,0 +1,14 @@
+.ball {
+    background-color: #cd5b45;
+    width: 3em;
+    height: 3em;
+    text-align: center;
+    border-radius: 100%;
+}
+
+.number {
+    padding: 0.8em;
+    justify-content: center;
+    color: white;
+    font-weight: 900;
+}
